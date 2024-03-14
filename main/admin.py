@@ -1,17 +1,7 @@
-# from django.contrib import admin
-# from .models import Product
-#
-# class ProductAdmin(admin.ModelAdmin):
-#     list_display = ('id', 'microcategory_id', 'location_id', 'price')
-#
-# admin.site.register(Product, ProductAdmin)
-# ваш_проект/ваше_приложение/admin.py
-
 from django.contrib import admin
 from .models import Product_1
 from main.views import input_values
 from django.core.cache import cache
-
 
 
 class ProductAdmin(admin.ModelAdmin):

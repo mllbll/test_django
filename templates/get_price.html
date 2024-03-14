@@ -1,48 +1,5 @@
 {#<!-- main/templates/get_price.html -->#}
-{##}
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Price</title>#}
-{#</head>#}
-{#<body>#}
-{#    {% if price %}#}
-{#        <p>Price: {{ price }}</p>#}
-{#    {% else %}#}
-{#        <p>No price found for microcategory_id=3 and location_id=400</p>#}
-{#    {% endif %}#}
-{#</body>#}
-{#</html>#}
-{##}
-{##}
-{##}
-{#<!-- main/templates/get_price.html -->#}
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
-{#    <title>Get Price</title>#}
-{#</head>#}
-{#<body>#}
-{#    <form method="post" action="{% url 'get_price' %}">#}
-{#        {% csrf_token %}#}
-{#        <label for="microcategory_id">Microcategory ID:</label>#}
-{#        <input type="text" name="microcategory_id" id="microcategory_id">#}
-{#        <label for="location_id">Location ID:</label>#}
-{#        <input type="text" name="location_id" id="location_id">#}
-{#        <button type="submit">Get Price</button>#}
-{#    </form>#}
-{#    {% if price %}#}
-{#        <p>Price: {{ price }}</p>#}
-{#    {% else %}#}
-{#        <p>Price not found for the given microcategory ID and location ID.</p>#}
-{#    {% endif %}#}
-{#</body>#}
-{#</html>#}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,18 +9,20 @@
     <title>Get Price</title>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        <label for="microcategory_id">Microcategory ID:</label>
-        <input type="number" name="microcategory_id" id="microcategory_id">
-        <label for="location_id">Location ID:</label>
-        <input type="number" name="location_id" id="location_id">
-        <button type="submit">Get Price</button>
-    </form>
-    {% if price is not None %}
-        <p>Price: {{ price }}</p>
-    {% elif price is None and request.method == 'POST' %}
-        <p>No price found for the given microcategory ID and location ID.</p>
-    {% endif %}
+<form method="post">
+    {% csrf_token %}
+    <label for="microcategory_id">Microcategory ID:</label>
+    <input type="number" name="microcategory_id" id="microcategory_id">
+    <label for="location_id">Location ID:</label>
+    <input type="number" name="location_id" id="location_id">
+    <button type="submit">Get Price</button>
+</form>
+{% if price is not None %}
+    <p>Price: {{ price }}</p>
+{% elif price is None and request.method == 'POST' %}
+    <p>No price found for the given microcategory ID and location ID.</p>
+{% endif %}
 </body>
 </html>
+
+
